@@ -1,0 +1,1 @@
+export const BASE_URL_GECKO = 'https://api.geckoterminal.com/api/v2'
