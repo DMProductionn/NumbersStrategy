@@ -92,7 +92,7 @@ export const Market: React.FC = () => {
             </div>
           ) : items.length === 0 ? (
             <div className="flex flex-col justify-center items-center min-h-[912px] max-lg:min-h-[400px] w-full">
-              <div className="rounded-[15px] bg-[#1A1A1F] flex justify-center items-center h-[64px] max-w-[335px] w-full px-[30px] py-[20px]">
+              <div className="rounded-[15px] bg-[#1A1A1F] flex justify-center items-center h-[64px] max-w-[345px] w-full px-[30px] py-[20px]">
                 <p className="font-[500] text-white/70 leading-[24px] tracking-[-0.02em] text-center">
                   There are no numbers available right now
                 </p>
