@@ -29,7 +29,7 @@ export const MarketItem: React.FC<IMarketItemProps> = ({ image_url, model_name, 
         </div>
       </div>
 
-      <div className="bg-[#313237] rounded-b-[20px] p-[20px] pt-[10px]">
+      <div className="bg-[#313237] rounded-b-[20px] p-[20px] pt-[10px] flex-1">
         <p className="text-[20px] font-[600] leading-[30px] max-sm:text-[16px] max-sm:leading-[24px]">
           {model_name}
         </p>

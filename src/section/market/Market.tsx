@@ -8,17 +8,21 @@ import { Loader } from '@/shared/uikit/Loader';
 import { useEffect, useState } from 'react';
 import useGetNumbers from './api/useGetNumbers';
 import { ItemNumber } from '@/shared/types/responses.types';
+import useGetBalance from './api/useGetBalance';
 
 export const Market: React.FC = () => {
   const [limit, setLimit] = useState(8);
   const [items, setItems] = useState<ItemNumber[]>([]);
   const [loadingMore, setLoadingMore] = useState(false);
+
   const { data: Numbers, isLoading: isLoadingGifts } = useGetNumbers(limit);
+  const { data: Balance } = useGetBalance();
+
+  const balanceFormated = ((Number(Balance?.balance) || 0) / 1e9).toFixed(2);
 
   useEffect(() => {
     if (Numbers?.items) {
-      setItems([])
-      // setItems((prev) => [...prev, ...Numbers.items.slice(prev.length)]);
+      setItems((prev) => [...prev, ...Numbers.items.slice(prev.length)]);
       setLoadingMore(false);
     }
   }, [Numbers]);
@@ -55,7 +59,7 @@ export const Market: React.FC = () => {
             </p>
             <div className="flex items-center gap-[4px]">
               <p className="text-[20px] font-[500] leading-[30px]">
-                <span>+34879.67</span> TON
+                <span>+{balanceFormated}</span> TON
               </p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +97,7 @@ export const Market: React.FC = () => {
             </div>
           ) : items.length === 0 ? (
             <div className="flex flex-col justify-center items-center min-h-[912px] max-lg:min-h-[400px] w-full">
-              <div className="rounded-[15px] bg-[#1A1A1F] flex justify-center items-center h-[64px] max-w-[365px] w-full px-[30px] py-[20px]">
+              <div className="rounded-[15px] bg-[#1A1A1F] inline-flex justify-center items-center minh-[64px] max-w-[365px] w-full px-[30px] py-[20px]">
                 <p className="font-[500] text-white/70 leading-[24px] tracking-[-0.02em] text-center">
                   There are no numbers available right now
                 </p>

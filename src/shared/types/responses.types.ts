@@ -127,3 +127,7 @@ export interface INumbersResponse {
   total: number;
   items: ItemNumber[];
 }
+
+export interface IBalanceResponse {
+  balance: string;
+}

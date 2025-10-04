@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const getPool = async () => {
-  const { data } = await axios.get<IPoolsResponse>(`${BASE_URL_GECKO}/networks/ton/pools/EQAM57dODrAJVf4q2Y7R5EU7S3VJWrqH24APbaASXi3vbQPy`);
+  const { data } = await axios.get<IPoolsResponse>(`${BASE_URL_GECKO}/networks/ton/pools/EQCyFe3Qz0gL-I1CwT4lSK3L97u7GcVPhPtGjEZ6fjpxR7bG`);
   return data.data.attributes
 }
 

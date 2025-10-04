@@ -12,10 +12,11 @@ import {
   formatPriceChange,
 } from '@/shared/utils/formats';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
-export const Chart: React.FC = () => {
+export const Chart: React.FC = () => { 
   const [copied, setCopied] = useState(false);
-  const masked = useMaskedCode('EQA9VQKbj4MSB0k-7sK1UrYyIgn9UnUpGXpUckBe9-osl0dj');
+  const masked = useMaskedCode('EQDzUrSxwxPJiD5aBUg-HOMlIFscZLZWJ06eOKU-0uDkR04k');
   const [burned, setBurned] = useState(0);
   const [percentagesBurned, setPercentagesBurned] = useState(0);
 
@@ -36,7 +37,7 @@ export const Chart: React.FC = () => {
   }, [Tokens]);
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText('EQA9VQKbj4MSB0k-7sK1UrYyIgn9UnUpGXpUckBe9-osl0dj');
+    await navigator.clipboard.writeText('EQDzUrSxwxPJiD5aBUg-HOMlIFscZLZWJ06eOKU-0uDkR04k');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -47,13 +48,13 @@ export const Chart: React.FC = () => {
         <div className="mb-[30px] flex items-center justify-between max-md:mb-[10px] max-xs:flex-col max-xs:items-start">
           <div className="flex items-center gap-[10px] max-xs:mb-[10px]">
             <svg
+              className="max-sm:w-[30px] max-sm:h-[30px]"
               xmlns="http://www.w3.org/2000/svg"
               xmlnsXlink="http://www.w3.org/1999/xlink"
               width={50}
               height={50}
               viewBox="0 0 50 50"
-              fill="none"
-              >
+              fill="none">
               <rect width={50} height={50} fill="url(#pattern0_1365_139)" />
               <defs>
                 <pattern
@@ -78,10 +79,13 @@ export const Chart: React.FC = () => {
             <h3 className="text-[50px] leading-[120%] font-[500] max-sm:text-[30px]">$NUMSTR</h3>
           </div>
           <div className="flex items-center gap-[12px] max-xs:w-full">
-            <button className="bg-white max-md:hidden rounded-[10px] border-[2px] border-[#1313164D]/50 w-[140px] h-[45px] text-[#131316] text-[14px] font-[700] leading-[20px] flex justify-center items-center">
+            <Link
+              target="_blank"
+              href="https://x1000.finance/tokens/EQDzUrSxwxPJiD5aBUg-HOMlIFscZLZWJ06eOKU-0uDkR04k?ref=trfl3s"
+              className="bg-white max-md:hidden rounded-[10px] border-[2px] border-[#1313164D]/50 w-[140px] max-xs:w-full h-[45px] text-[#131316] text-[14px] font-[700] leading-[20px] flex justify-center items-center">
               Trade $NUMSTR
-            </button>
-            <div className="relative flex justify-center">
+            </Link>
+            <div className="relative flex justify-center max-xs:w-full">
               {copied && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -118,15 +122,18 @@ export const Chart: React.FC = () => {
           </div>
         </div>
 
-        <button className="bg-white max-md:flex hidden rounded-[10px] border-[2px] border-[#1313164D]/50 w-full h-[45px] text-[#131316] text-[14px] font-[700] leading-[20px] justify-center items-center mb-[20px]">
+        <Link
+          target="_blank"
+          href="https://x1000.finance/tokens/EQDzUrSxwxPJiD5aBUg-HOMlIFscZLZWJ06eOKU-0uDkR04k?ref=trfl3s"
+          className="bg-white max-md:flex hidden rounded-[10px] border-[2px] border-[#1313164D]/50 w-full h-[45px] text-[#131316] text-[14px] font-[700] leading-[20px] justify-center items-center mb-[20px]">
           Trade $NUMSTR
-        </button>
+        </Link>
 
         <div className="border border-white/10 bg-[#222228] rounded-[20px] min-h-[98px] w-full flex justify-around items-center max-[840px]:flex-col max-[840px]:items-start max-[840px]:p-[20px] gap-y-[20px]">
           <div className="flex flex-col gap-[4px] items-center max-[840px]:flex-row max-[840px]:w-full max-[840px]:justify-between">
             <p className="text-white/70 leading-[24px] font-[500]">$NUMSTR Price</p>
             <p className="text-[20px] leading-[30px] font-[700]">
-              {formatPrice(POOL?.base_token_price_usd)}
+              {POOL?.base_token_price_usd ? formatPrice(POOL.base_token_price_usd) : '0'}
             </p>
           </div>
           <div className="flex flex-col gap-[4px] items-center max-[840px]:flex-row max-[840px]:w-full max-[840px]:justify-between">
@@ -138,7 +145,7 @@ export const Chart: React.FC = () => {
           <div className="flex flex-col gap-[4px] items-center max-[840px]:flex-row max-[840px]:w-full max-[840px]:justify-between">
             <p className="text-white/70 leading-[24px] font-[500]">24h Volume</p>
             <p className="text-[20px] leading-[30px] font-[700]">
-              {formatPrice(POOL?.volume_usd.h24)}
+              {POOL?.volume_usd?.h24 ? formatPrice(POOL.volume_usd.h24) : '0'}
             </p>
           </div>
           <div className="flex flex-col gap-[4px] items-center max-[840px]:flex-row max-[840px]:w-full max-[840px]:justify-between">
@@ -164,8 +171,12 @@ export const Chart: React.FC = () => {
         <div className="bg-[#18181C] border border-white/10 rounded-[20px] h-[652px] max-sm:h-[450px] flex items-center justify-center mt-[30px] p-[20px]">
           <div className="relative w-full h-full">
             <iframe
-              className="w-full h-full"
-              src="https://www.geckoterminal.com/ru/ton/pools/EQAM57dODrAJVf4q2Y7R5EU7S3VJWrqH24APbaASXi3vbQPy?embed=1&info=0&swaps=0&light=0"></iframe>
+              id="geckoterminal-embed"
+              title="GeckoTerminal Embed"
+              src="https://www.geckoterminal.com/ton/pools/EQCyFe3Qz0gL-I1CwT4lSK3L97u7GcVPhPtGjEZ6fjpxR7bG?embed=1&info=0&swaps=0&light_chart=0&chart_type=price&resolution=1d&bg_color=111827"
+              allow="clipboard-write"
+              style={{ width: '100%', height: '100%' }}
+            />
           </div>
         </div>
       </Container>

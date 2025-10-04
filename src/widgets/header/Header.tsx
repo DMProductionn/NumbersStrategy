@@ -2,6 +2,7 @@
 
 import { Container } from '@/shared/uikit/Container';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const Header: React.FC = () => {
   return (
@@ -81,10 +82,10 @@ export const Header: React.FC = () => {
             </svg>
             <p className="font-[500] leading-[24px]">Numbers Strategy</p>
           </div>
-          <button className="bg-blue border-[2px] border-[#1313164D]/50 flex justify-center items-center gap-[4px] h-[40px] px-[20px] text-[14px] text-black font-[700] leading-[20px] rounded-[10px]">
+          <Link target='_blank' href='https://x1000.finance/tokens/EQDzUrSxwxPJiD5aBUg-HOMlIFscZLZWJ06eOKU-0uDkR04k?ref=trfl3s' className="bg-blue border-[2px] border-[#1313164D]/50 flex justify-center items-center gap-[4px] h-[40px] px-[20px] text-[14px] text-black font-[700] leading-[20px] rounded-[10px]">
             <p className="max-[380px]:!hidden inline tracking-[-0.02em]">Buy $NUMSTR</p>
             <p className="max-[380px]:!inline hidden tracking-[-0.02em]">Buy</p>
-          </button>
+          </Link>
         </header>
       </Container>
     </>

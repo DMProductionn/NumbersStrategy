@@ -14,13 +14,16 @@ export const Footer: React.FC = () => {
       <Container className="flex justify-between relative z-[999]">
         <div className="flex flex-col gap-[20px] w-full">
           <div className="justify-between flex items-center w-full max-md:flex-col max-md:items-start gap-[20px]">
-            <button className="bg-white rounded-[10px] border-[2px] border-[#1313164D]/50 w-[140px] h-[45px] text-[#131316] text-[14px] font-[700] leading-[20px] flex justify-center items-center max-md:order-2">
+            <Link
+              target="_blank"
+              href="https://x1000.finance/tokens/EQDzUrSxwxPJiD5aBUg-HOMlIFscZLZWJ06eOKU-0uDkR04k?ref=trfl3s"
+              className="bg-white rounded-[10px] border-[2px] border-[#1313164D]/50 w-[140px] h-[45px] text-[#131316] text-[14px] font-[700] leading-[20px] flex justify-center items-center max-md:order-2">
               Buy $NUMSTR
-            </button>
+            </Link>
             <div className="flex gap-[16px] items-center max-sm:grid max-sm:grid-cols-1 max-sm:w-full">
               <Link
                 className="cursor-pointer inline-flex gap-[12px] items-center h-[50px] px-[15px] border border-white/10 bg-[#24A2DF26] rounded-[15px]"
-                href="/"
+                href="https://t.me/numsfomo"
                 target="_blank">
                 <svg
                   pointerEvents="none"
@@ -43,8 +46,8 @@ export const Footer: React.FC = () => {
                       x2="13.8164"
                       y2="25.5771"
                       gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#2AABEE" />
-                      <stop offset="1" stop-color="#229ED9" />
+                      <stop stopColor="#2AABEE" />
+                      <stop offset="1" stopColor="#229ED9" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -52,7 +55,7 @@ export const Footer: React.FC = () => {
               </Link>
               <Link
                 className="cursor-pointer inline-flex gap-[12px] items-center h-[50px] px-[15px] border border-white/10 bg-[#222228] rounded-[15px]"
-                href="/"
+                href="https://x.com/numsfomo"
                 target="_blank">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
